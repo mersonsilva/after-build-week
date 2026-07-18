@@ -138,8 +138,9 @@ Representative engineering episodes include the Capacitor 8 migration, Android p
 ## Build Week
 
 - **Category:** Apps for Your Life
-- **Demo:** Add public YouTube URL before submission
-- **Live product:** Add public web/Play Store URL before submission
+- **Demo:** Public YouTube URL will be added after the final upload
+- **Live web product:** https://after-github-fix.vercel.app
+- **Google Play:** https://play.google.com/store/apps/details?id=br.com.afterapp.app
 - **Submission deadline:** July 21, 2026 at 5:00 PM PT
 
 ## Creator
@@ -149,4 +150,3 @@ Created in Brazil by **Emerson Nicolas**, with Codex as an AI engineering partne
 ## License
 
 Copyright (c) 2026 Emerson Nicolas. Review access is granted for OpenAI Build Week judging. See `LICENSE` in the judging repository.
-
