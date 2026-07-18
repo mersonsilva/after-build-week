@@ -1,0 +1,125 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#02080b" />
+    <title>AFTER | No seu ritmo</title>
+    <link rel="manifest" href="manifest.json?v=131" />
+    <link rel="icon" href="assets/after-icon-192.png?v=131" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=131" />
+    <style>
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        background: #02080b;
+        color: #f4f8fa;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .boot-loading {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+        background:
+          radial-gradient(circle at 50% -10%, rgba(0, 214, 242, 0.16), transparent 280px),
+          #02080b;
+      }
+
+      .boot-card {
+        width: min(420px, 100%);
+        padding: 28px;
+        border: 1px solid rgba(0, 214, 242, 0.28);
+        border-radius: 24px;
+        background: rgba(6, 17, 21, 0.92);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+        text-align: center;
+      }
+
+      .boot-title {
+        margin: 0;
+        color: #28dcff;
+        font-size: 36px;
+        letter-spacing: 0;
+      }
+
+      .boot-subtitle {
+        margin: 8px 0 0;
+        color: #a7b8bf;
+        font-size: 16px;
+      }
+    </style>
+    <link rel="stylesheet" href="src/styles/main.css?v=131" />
+  </head>
+  <body>
+    <main id="app" class="app" aria-live="polite">
+      <section class="boot-loading">
+        <div class="boot-card">
+          <h1 class="boot-title">AFTER</h1>
+          <p class="boot-subtitle">Carregando no seu ritmo...</p>
+        </div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script>
+      window.afterShowBootError = function afterShowBootError(error) {
+        const app = document.querySelector("#app");
+        if (!app || !app.querySelector(".boot-loading")) return;
+        const details = error && (error.message || String(error));
+        app.innerHTML = `
+          <section class="boot-loading">
+            <div class="boot-card">
+              <h1 class="boot-title">AFTER</h1>
+              <p class="boot-subtitle">Não foi possível iniciar o app agora.</p>
+              <p class="boot-subtitle">${details ? details.replace(/[<>&]/g, "") : "Atualize a página ou publique a versão mais recente."}</p>
+            </div>
+          </section>
+        `;
+      };
+
+      window.afterBootTimeout = window.setTimeout(function afterBootTimeout() {
+        window.afterShowBootError("O carregamento demorou mais que o esperado.");
+      }, 7000);
+    </script>
+    <script type="module">
+      async function bootAfter() {
+        const resetKey = "after.cacheReset.v131";
+
+        if (
+          "serviceWorker" in navigator &&
+          navigator.serviceWorker.controller &&
+          sessionStorage.getItem(resetKey) !== "done"
+        ) {
+          sessionStorage.setItem(resetKey, "done");
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(registrations.map((registration) => registration.unregister()));
+          if ("caches" in window) {
+            const keys = await caches.keys();
+            await Promise.all(keys.map((key) => caches.delete(key)));
+          }
+          window.location.reload();
+          return;
+        }
+
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("/service-worker.js").catch(() => {});
+        }
+
+        import("./src/app.js?v=131").catch((error) => {
+          window.clearTimeout(window.afterBootTimeout);
+          window.afterShowBootError(error);
+        });
+      }
+
+      bootAfter().catch((error) => {
+        window.clearTimeout(window.afterBootTimeout);
+        window.afterShowBootError(error);
+      });
+    </script>
+  </body>
+</html>
+

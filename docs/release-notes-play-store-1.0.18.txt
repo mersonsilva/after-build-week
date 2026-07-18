@@ -1,0 +1,9 @@
+AFTER 1.0.18
+
+- Atualizacao do app Android para base nativa com Capacitor 8.
+- Melhorias de estabilidade no chat e na navegacao.
+- Correcoes no botao voltar do Android.
+- Ajustes no envio e selecao nativa de fotos.
+- Melhorias visuais na conversa aberta e na lista de conexoes.
+- Remocao de permissao ampla de midia, mantendo seletor nativo de fotos.
+- Correcoes gerais para preparacao do teste fechado na Play Store.

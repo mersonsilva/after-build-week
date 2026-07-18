@@ -1,0 +1,9 @@
+AFTER 1.0.21
+
+- Correcao critica no chat apos migracao para Capacitor 8.
+- Corrigido erro `getLatestTime is not defined`.
+- Melhorias na estabilidade das conversas e ordenacao das mensagens.
+- Reforco no fluxo de gravacao de audio e permissao de microfone.
+- Melhorias para evitar mensagens sumindo ou duplicando durante atualizacoes.
+- Novo icone do app aplicado.
+- Correcoes gerais de estabilidade para teste fechado.

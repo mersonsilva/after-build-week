@@ -1,0 +1,11 @@
+AFTER 1.0.20
+
+- Novo icone do app com melhor enquadramento.
+- Melhorias de velocidade e estabilidade na abertura e nas conversas.
+- Correcoes no envio e atualizacao de mensagens.
+- Correcoes no envio de fotos no chat para evitar duplicidade.
+- Melhorias nas permissoes de notificacoes, localizacao e microfone.
+- Ajustes no envio de localizacao e abertura de rotas.
+- Refinamento visual em Configuracoes Gerais da Conta.
+- Atualizacao do texto Sobre o AFTER.
+- Correcoes gerais de UX e preparacao para teste fechado.

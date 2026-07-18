@@ -1,0 +1,20 @@
+{
+  "appId": "br.com.afterapp.app",
+  "appName": "AFTER",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 300,
+      "backgroundColor": "#02080B",
+      "androidScaleType": "CENTER_CROP"
+    }
+  }
+}
