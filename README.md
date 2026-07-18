@@ -138,7 +138,7 @@ Representative engineering episodes include the Capacitor 8 migration, Android p
 ## Build Week
 
 - **Category:** Apps for Your Life
-- **Demo:** Public YouTube URL will be added after the final upload
+- **Demo:** https://www.youtube.com/watch?v=NqfTXpNx1cM
 - **Live web product:** https://after-github-fix.vercel.app
 - **Google Play:** https://play.google.com/store/apps/details?id=br.com.afterapp.app
 - **Submission deadline:** July 21, 2026 at 5:00 PM PT
